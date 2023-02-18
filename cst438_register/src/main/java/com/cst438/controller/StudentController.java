@@ -30,9 +30,10 @@ public class StudentController {
 	@Transactional
 	public Student addStudent(@RequestBody StudentDTO studentDTO) {
 		
-		
+		/* Finds student by email */
 		Student student = studentRepository.findByEmail(studentDTO.student_email);
 		
+		/* If student is null, new student is added to the database */
 		if (student == null) {
 			Student newStudent = new Student();
 			newStudent.setEmail(studentDTO.student_email);
@@ -52,9 +53,10 @@ public class StudentController {
 	@Transactional
 	public Student addStudentHold(@PathVariable("student_id") int student_id) {
 		
-		
+		/* Finds student by ID */
 		Student student = studentRepository.findById(student_id).orElse(null);
 		
+		/* If student is not null, change status code to 1 and status to "HOLD" */
 		if (student != null) {
 			student.setStatusCode(1);
 			student.setStatus("HOLD");
@@ -73,9 +75,10 @@ public class StudentController {
 	@Transactional
 	public Student releaseStudentHold(@PathVariable("student_id") int student_id) {
 		
-		
+		/* Finds student by ID */
 		Student student = studentRepository.findById(student_id).orElse(null);
 		
+		/* If student is not null, change status code to 0 and status to null */
 		if (student != null) {
 			student.setStatusCode(0);
 			student.setStatus(null);

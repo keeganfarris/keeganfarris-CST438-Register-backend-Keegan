@@ -76,6 +76,7 @@ public class JunitTestSchedule {
 	@Autowired
 	private MockMvc mvc;
 
+	
 	@Test
 	public void addCourse()  throws Exception {
 		

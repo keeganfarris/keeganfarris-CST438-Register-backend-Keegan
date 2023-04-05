@@ -42,7 +42,7 @@
     		<optional>true</optional>
 		</dependency>
 
-		<!-- for rabbitmq -->
+	      <!-- for rabbitmq -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
@@ -50,7 +50,7 @@
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit-test</artifactId>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
 		<!-- end rabbitmq -->
 		

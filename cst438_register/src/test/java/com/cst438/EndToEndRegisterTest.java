@@ -103,12 +103,16 @@ public class EndToEndRegisterTest {
 
 		try {
 
+			
+			// Navigates to URL
 			driver.get(URL);
 			Thread.sleep(SLEEP_DURATION);
 			
+			// Clicks add student button
 			driver.findElement(By.id("add-student-home")).click();
 			Thread.sleep(SLEEP_DURATION);
 
+			// Inputs student values
 			driver.findElement(By.id("firstName")).sendKeys(TEST_USER_FIRST_NAME);
 			Thread.sleep(SLEEP_DURATION);
 			
@@ -124,13 +128,16 @@ public class EndToEndRegisterTest {
 			driver.findElement(By.id("status")).sendKeys(TEST_USER_STATUS);
 			Thread.sleep(SLEEP_DURATION);
 			
+			// Clicks add student
 			driver.findElement(By.id("add-student")).click();
 			Thread.sleep(SLEEP_DURATION);
 		
+			// Checks if student repository has student that was added.
 			Student s = studentRepository.findByEmail(TEST_USER_EMAIL);
 			
 			assertNotNull(s, "Student not found in database.");
 			
+			// Checks if values are the same entered on front end.
 			assertEquals(driver.findElement(By.id("addedEmail")).getText(), s.getEmail());
 			Thread.sleep(500);
 
